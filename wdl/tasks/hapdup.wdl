@@ -16,6 +16,7 @@ task hapdup_t {
     set -u
     set -o xtrace
 
+    flye-samtools index -@ 10 ~{alignedBam}
     hapdup --assembly ~{contigs} --bam ~{alignedBam} --out-dir hapdup -t ~{threads} --rtype ~{readType}
   >>>
 
