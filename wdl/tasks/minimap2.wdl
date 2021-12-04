@@ -11,6 +11,11 @@ task minimap2_t {
   }
 
   command <<<
+    set -o pipefail
+    set -e
+    set -u
+    set -o xtrace
+    
     minimap2 -ax ~{mapMode} ~{reference} ~{reads} -K 5G -t ~{threads} | samtools sort -@ 4 -m 4G > minimap2.bam
     samtools index -@ ~{threads} minimap2.bam
   >>>
