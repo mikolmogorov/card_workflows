@@ -16,6 +16,10 @@ task hapdup_t {
     set -u
     set -o xtrace
 
+    #Workaround for Python multiprocessing, fixes "AF_UNIX path too long"
+    mkdir -p /tmp
+    export TMPDIR="/tmp"
+
     flye-samtools index -@ 10 ~{alignedBam}
     hapdup --assembly ~{contigs} --bam ~{alignedBam} --out-dir hapdup -t ~{threads} --rtype ~{readType}
   >>>
