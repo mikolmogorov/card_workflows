@@ -16,11 +16,11 @@ task dipdiff_t {
     set -u
     set -o xtrace
 
-    dipdiff --reference ~{reference} --pat ~{ctgsPat} --mat ~{ctgsMat} -t ~{threads}
+    dipdiff.py --reference ~{reference} --pat ~{ctgsPat} --mat ~{ctgsMat} --out-dir dipdiff -t ~{threads}
   >>>
 
   output {
-    File dipdiffVcf = "variants.vcf"
+    File dipdiffVcf = "dipdiff/variants.vcf"
   }
 
   runtime {
