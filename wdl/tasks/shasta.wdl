@@ -34,6 +34,6 @@ task shasta_t {
     docker: "mkolmogo/card_shasta"
     cpu: threads
     memory: memSizeGb + " GB"
-    disk: "local-disk " + diskSizeGb + " SSD"
+    disks: "local-disk " + diskSizeGb + " SSD"
   }
 }

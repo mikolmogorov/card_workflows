@@ -29,6 +29,6 @@ task minimap2_t {
     docker: "mkolmogo/card_mapping"
     cpu: threads
 	memory: memSizeGb + " GB"
-	disk: "local-disk " + diskSizeGb + " SSD"
+	disks: "local-disk " + diskSizeGb + " SSD"
   }
 }
