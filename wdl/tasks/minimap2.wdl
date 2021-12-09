@@ -7,7 +7,7 @@ task minimap2_t {
     File reads
 	String mapMode = "map-ont"
 	Int memSizeGb = 64
-	Int diskSizeGb = 32
+	Int diskSizeGb = 256
   }
 
   command <<<
@@ -29,6 +29,6 @@ task minimap2_t {
     docker: "mkolmogo/card_mapping"
     cpu: threads
 	memory: memSizeGb + " GB"
-	disk: "local-disk " + diskSizeGb
+	disk: "local-disk " + diskSizeGb + " SSD"
   }
 }

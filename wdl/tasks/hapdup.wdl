@@ -7,7 +7,7 @@ task hapdup_t {
 	File contigs
     String readType = "ont"
     Int memSizeGb = 128
-    Int diskSizeGb = 500
+    Int diskSizeGb = 512
   }
 
   command <<<
@@ -33,6 +33,6 @@ task hapdup_t {
     docker: "mkolmogo/hapdup:0.4"
     cpu: threads
     memory: memSizeGb + " GB"
-    disk: "local-disk " + diskSizeGb
+    disk: "local-disk " + diskSizeGb + " SSD"
   }
 }

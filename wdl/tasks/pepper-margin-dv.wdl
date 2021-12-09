@@ -7,7 +7,7 @@ task pepper_margin_dv_t {
 	File bamAlignment
 	String mapMode = "ont"
 	Int memSizeGb = 128
-	Int diskSizeGb = 32
+	Int diskSizeGb = 512
   }
 
   String pepperMode = if mapMode == "ont" then "--ont_r9_guppy5_sup" else "--hifi"
@@ -31,6 +31,6 @@ task pepper_margin_dv_t {
     docker: "kishwars/pepper_deepvariant:r0.6"
     cpu: threads
 	memory: memSizeGb + " GB"
-	disk: "local-disk " + diskSizeGb
+	disk: "local-disk " + diskSizeGb + " SSD"
   }
 }

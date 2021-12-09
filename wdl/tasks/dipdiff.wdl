@@ -6,8 +6,8 @@ task dipdiff_t {
     File ctgsPat
 	File ctgsMat
 	File reference
-    Int memSizeGb = 128
-    Int diskSizeGb = 500
+    Int memSizeGb = 64
+    Int diskSizeGb = 100
   }
 
   command <<<
@@ -27,6 +27,6 @@ task dipdiff_t {
     docker: "mkolmogo/dipdiff:0.1"
     cpu: threads
     memory: memSizeGb + " GB"
-    disk: "local-disk " + diskSizeGb
+    disk: "local-disk " + diskSizeGb + " SSD"
   }
 }

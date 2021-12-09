@@ -5,8 +5,8 @@ task shasta_t {
     Int threads
     File reads
     String shastaConfig = "Nanopore-Oct2021"
-    Int memSizeGb = 768
-    Int diskSizeGb = 500
+    Int memSizeGb = 512
+    Int diskSizeGb = 512
   }
 
   command <<<
@@ -34,6 +34,6 @@ task shasta_t {
     docker: "mkolmogo/card_shasta"
     cpu: threads
     memory: memSizeGb + " GB"
-    disk: "local-disk " + diskSizeGb
+    disk: "local-disk " + diskSizeGb + " SSD"
   }
 }
