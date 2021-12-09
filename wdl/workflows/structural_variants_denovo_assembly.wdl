@@ -5,7 +5,7 @@ import "../tasks/shasta.wdl" as shasta_t
 import "../tasks/hapdup.wdl" as hapdup_t
 import "../tasks/dipdiff.wdl" as dipdiff_t
 
-workflow denovoAssembleAndCallSv {
+workflow structuralVariantsDenovoAssembly {
 
     input {
         String sampleName
