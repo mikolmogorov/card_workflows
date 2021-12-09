@@ -33,18 +33,3 @@ workflow smallVariantsReferenceBased {
         File smallVariantsVcf = pepper_t.pepperVcf
 	}
 }
-
-task getBamStats {
-  input {
-   	File bamFile 
-  }
-  command <<<
-    samtools stats ~{bamFile} > stats.txt
-  >>>
-  output {
-    File out = "stats.txt"
-  }
-  runtime {
-    docker: "mkolmogo/card_mapping"
-  }
-}

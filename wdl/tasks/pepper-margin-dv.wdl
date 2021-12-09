@@ -6,7 +6,7 @@ task pepper_margin_dv_t {
     File reference
 	File bamAlignment
 	String mapMode = "ont"
-	Int memSizeGb = 64
+	Int memSizeGb = 128
 	Int diskSizeGb = 32
   }
 
@@ -30,7 +30,7 @@ task pepper_margin_dv_t {
   runtime {
     docker: "kishwars/pepper_deepvariant:r0.6"
     cpu: threads
-	memory: memSizeGb + " Gb"
+	memory: memSizeGb + " GB"
 	disk: "local-disk " + diskSizeGb
   }
 }

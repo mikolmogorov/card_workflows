@@ -26,7 +26,7 @@ task dipdiff_t {
   runtime {
     docker: "mkolmogo/dipdiff:0.1"
     cpu: threads
-    memory: memSizeGb + " Gb"
+    memory: memSizeGb + " GB"
     disk: "local-disk " + diskSizeGb
   }
 }

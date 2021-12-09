@@ -28,7 +28,7 @@ task minimap2_t {
   runtime {
     docker: "mkolmogo/card_mapping"
     cpu: threads
-	memory: memSizeGb + " Gb"
+	memory: memSizeGb + " GB"
 	disk: "local-disk " + diskSizeGb
   }
 }

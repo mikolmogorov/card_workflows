@@ -33,7 +33,7 @@ task shasta_t {
   runtime {
     docker: "mkolmogo/card_shasta"
     cpu: threads
-    memory: memSizeGb + " Gb"
+    memory: memSizeGb + " GB"
     disk: "local-disk " + diskSizeGb
   }
 }
