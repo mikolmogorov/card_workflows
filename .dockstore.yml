@@ -1,8 +1,8 @@
 versionon: 1.2
 workflows:
-  -  name: smallVariantsReferenceBased
-     subclass: WDL
-     primaryDescriptorPath: /wdl/workflows/small_variant_reference_based.wdl
-  -  name: structuralVariantsDenovoAssembly
-     subclass: WDL
-     primaryDescriptorPath: /wdl/workflows/structural_variants_denovo_assembly.wdl
+   -  name: smallVariantsReferenceBased
+      subclass: WDL
+      primaryDescriptorPath: /wdl/workflows/small_variant_reference_based.wdl
+   -  name: structuralVariantsDenovoAssembly
+      subclass: WDL
+      primaryDescriptorPath: /wdl/workflows/structural_variants_denovo_assembly.wdl
