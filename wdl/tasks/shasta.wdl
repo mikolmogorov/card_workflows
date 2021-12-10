@@ -6,7 +6,7 @@ task shasta_t {
     Int threads = 96
     String shastaConfig = "Nanopore-Oct2021"
     Int memSizeGb = 624
-    Int diskSizeGb = 512
+    Int diskSizeGb = 1024
   }
 
   command <<<
