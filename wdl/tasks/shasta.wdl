@@ -3,7 +3,7 @@ version 1.0
 task shasta_t {
   input {
     File reads
-    Int threads = 96
+    Int threads = 80
     String shastaConfig = "Nanopore-Oct2021"
     Int memSizeGb = 768
     Int diskSizeGb = 512
