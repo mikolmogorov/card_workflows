@@ -2,10 +2,10 @@ version 1.0
 
 task shasta_t {
   input {
-    Int threads
     File reads
+    Int threads = 96
     String shastaConfig = "Nanopore-Oct2021"
-    Int memSizeGb = 512
+    Int memSizeGb = 768
     Int diskSizeGb = 512
   }
 
@@ -35,5 +35,6 @@ task shasta_t {
     cpu: threads
     memory: memSizeGb + " GB"
     disks: "local-disk " + diskSizeGb + " SSD"
+    cpuPlatform: "Intel Cascade Lake"
   }
 }

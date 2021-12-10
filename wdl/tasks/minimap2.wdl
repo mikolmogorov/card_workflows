@@ -6,7 +6,7 @@ task minimap2_t {
     File reference
     File reads
 	String mapMode = "map-ont"
-	Int memSizeGb = 64
+	Int memSizeGb = 128
 	Int diskSizeGb = 256
   }
 

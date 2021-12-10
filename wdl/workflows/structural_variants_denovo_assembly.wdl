@@ -17,7 +17,7 @@ workflow structuralVariantsDenovoAssembly {
     ### Shasta assembly ###
     call shasta_t.shasta_t as shasta_t {
         input:
-            threads=threads,
+    #        threads=threads,
             reads=readsFile
     }
 
