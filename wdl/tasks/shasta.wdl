@@ -3,9 +3,9 @@ version 1.0
 task shasta_t {
   input {
     File reads
-    Int threads = 80
+    Int threads = 96
     String shastaConfig = "Nanopore-Oct2021"
-    Int memSizeGb = 768
+    Int memSizeGb = 624
     Int diskSizeGb = 512
   }
 
@@ -22,7 +22,7 @@ task shasta_t {
       zcat $SHASTA_INPUT > ${UNGZIPPED}
       SHASTA_INPUT=${UNGZIPPED}
     fi
-    shasta --input $SHASTA_INPUT --config ~{shastaConfig} --threads ~{threads}
+    shasta --input $SHASTA_INPUT --config ~{shastaConfig} --threads ~{threads} --memoryMode filesystem --memoryBacking 2M
   >>>
 
   output {
@@ -35,6 +35,6 @@ task shasta_t {
     cpu: threads
     memory: memSizeGb + " GB"
     disks: "local-disk " + diskSizeGb + " SSD"
-    cpuPlatform: "Intel Cascade Lake"
+    #cpuPlatform: "Intel Cascade Lake"
   }
 }
