@@ -22,7 +22,7 @@ task shasta_t {
       zcat $SHASTA_INPUT > ${UNGZIPPED}
       SHASTA_INPUT=${UNGZIPPED}
     fi
-    shasta --input $SHASTA_INPUT --config ~{shastaConfig} --threads ~{threads} --memoryMode filesystem --memoryBacking 2M
+    shasta --input $SHASTA_INPUT --config ~{shastaConfig} --threads ~{threads} --memoryMode filesystem --memoryBacking disk
   >>>
 
   output {
