@@ -6,7 +6,7 @@ task dipdiff_t {
     File ctgsPat
 	File ctgsMat
 	File reference
-    Int memSizeGb = 64
+    Int memSizeGb = 128
     Int diskSizeGb = 100
   }
 
