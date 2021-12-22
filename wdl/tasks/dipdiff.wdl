@@ -2,10 +2,10 @@ version 1.0
 
 task dipdiff_t {
   input {
-    Int threads
     File ctgsPat
 	File ctgsMat
 	File reference
+    Int threads = 32
     Int memSizeGb = 128
     Int diskSizeGb = 100
   }
@@ -24,7 +24,7 @@ task dipdiff_t {
   }
 
   runtime {
-    docker: "mkolmogo/dipdiff:0.1"
+    docker: "mkolmogo/dipdiff:0.2"
     cpu: threads
     memory: memSizeGb + " GB"
     disks: "local-disk " + diskSizeGb + " SSD"

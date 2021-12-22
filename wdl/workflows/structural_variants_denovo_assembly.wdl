@@ -17,7 +17,7 @@ workflow structuralVariantsDenovoAssembly {
     ### Shasta assembly ###
     call shasta_t.shasta_t as shasta_t {
         input:
-    #        threads=threads,
+            #threads=threads,
             reads=readsFile
     }
 
@@ -40,7 +40,7 @@ workflow structuralVariantsDenovoAssembly {
 	### dipdiff
 	call dipdiff_t.dipdiff_t as dipdiff_t {
 		input:
-			threads=threads,
+			#threads=threads,
 			reference=referenceFile,
 			ctgsPat=hapdup_t.hapdupHap1,
 			ctgsMat=hapdup_t.hapdupHap2
