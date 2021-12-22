@@ -6,8 +6,8 @@ task pepper_margin_dv_t {
     File reference
 	File bamAlignment
 	String mapMode = "ont"
-	Int memSizeGb = 128
-	Int diskSizeGb = 512
+	Int memSizeGb = 256
+	Int diskSizeGb = 1024
   }
 
   String pepperMode = if mapMode == "ont" then "--ont_r9_guppy5_sup" else "--hifi"
