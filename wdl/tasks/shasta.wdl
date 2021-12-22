@@ -18,8 +18,14 @@ task shasta_t {
     SHASTA_INPUT=~{reads}
     if [ "${SHASTA_INPUT: -3}" == ".gz" ]
     then
-      UNGZIPPED=${SHASTA_INPUT:0:-3}
-      zcat $SHASTA_INPUT > ${UNGZIPPED}
+      if [ "${SHASTA_INPUT: -4}" == "q.gz" ]
+        UNGZIPPED=${SHASTA_INPUT:0:-3}.fasta
+        zcat $SHASTA_INPUT | awk '{if(NR%4==1) {printf(">%s\n",substr($0,2));} else if(NR%4==2) print;}' > ${UNGZIPPED}
+      else
+        UNGZIPPED=${SHASTA_INPUT:0:-3}
+        zcat $SHASTA_INPUT > ${UNGZIPPED}
+      fi
+      rm $SHASTA_INPUT
       SHASTA_INPUT=${UNGZIPPED}
     fi
     shasta --input $SHASTA_INPUT --config ~{shastaConfig} --threads ~{threads} --memoryMode filesystem --memoryBacking disk
