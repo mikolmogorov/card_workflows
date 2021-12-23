@@ -6,8 +6,8 @@ task hapdup_t {
     File alignedBam
 	File contigs
     String readType = "ont"
-    Int memSizeGb = 128
-    Int diskSizeGb = 512
+    Int memSizeGb = 256
+    Int diskSizeGb = 1024
   }
 
   command <<<
