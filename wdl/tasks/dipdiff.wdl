@@ -7,7 +7,7 @@ task dipdiff_t {
 	File reference
     Int threads = 32
     Int memSizeGb = 128
-    Int diskSizeGb = 100
+    Int diskSizeGb = 256
   }
 
   command <<<
