@@ -4,7 +4,7 @@ task shasta_t {
   input {
     File reads
     Int threads = 96
-    String shastaConfig = "Nanopore-Oct2021"
+    String shastaConfig = "/opt/shasta_config/Nanopore-CARD-Jan2022.conf"
     Int memSizeGb = 624
     Int diskSizeGb = 1024
   }
@@ -38,7 +38,7 @@ task shasta_t {
   }
 
   runtime {
-    docker: "mkolmogo/card_shasta"
+    docker: "mkolmogo/card_shasta:0.2"
     cpu: threads
     memory: memSizeGb + " GB"
     disks: "local-disk " + diskSizeGb + " SSD"
