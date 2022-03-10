@@ -8,8 +8,6 @@ task sniffles_t {
 	Int diskSizeGb = 256
   }
   
-  File snifflesOut = "sniffles.vcf"
-  
   command <<<
     set -o pipefail
     set -e
@@ -17,11 +15,11 @@ task sniffles_t {
     set -o xtrace
 
     samtools index -@ 10 ~{bamAlignment}
-    sniffles -i ~{bamAlignment} -v ~{snifflesOut} -t ~{threads}
+    sniffles -i ~{bamAlignment} -v sniffles.vcf -t ~{threads}
   >>>
 
   output {
-	File snifflesVcf = snifflesOut
+	File snifflesVcf = "sniffles.vcf"
   }
 
   runtime {
