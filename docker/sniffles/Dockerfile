@@ -8,3 +8,15 @@ RUN apt-get update && \
 
 RUN pip install sniffles
 
+### samtools
+# 1.9
+WORKDIR /opt/samtools
+RUN wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2 && \
+    tar xvf samtools-1.9.tar.bz2 && \
+	rm -r /opt/samtools/samtools-1.9.tar.bz2 && \
+	cd samtools-1.9/ && \
+	autoheader && \
+	autoconf -Wno-header && \
+	./configure && \
+	make && \
+	cp samtools /usr/bin/samtools

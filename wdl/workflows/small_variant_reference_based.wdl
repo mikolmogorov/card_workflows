@@ -1,6 +1,7 @@
 version 1.0
 
 import "../tasks/minimap2.wdl" as minimap2_t
+import "../tasks/sniffles.wdl" as sniffles_t
 import "../tasks/pepper-margin-dv.wdl" as pepper_t
 
 workflow smallVariantsReferenceBased {
@@ -17,7 +18,8 @@ workflow smallVariantsReferenceBased {
         input:
             threads=threads,
             reference=referenceFile,
-            reads=readsFile
+            reads=readsFile,
+			useMd=true
     }
 
 
@@ -29,7 +31,15 @@ workflow smallVariantsReferenceBased {
 			bamAlignment=minimap2.bam
     }
 
+	### Sniffles
+    call sniffles_t.sniffles_t as sniffles_t {
+        input:
+            threads=threads,
+			bamAlignment=minimap2.bam
+    }
+
 	output {
         File smallVariantsVcf = pepper_t.pepperVcf
+        File structuralVariantsSniffles = sniffles_t.snifflesVcf
 	}
 }
