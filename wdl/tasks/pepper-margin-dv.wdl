@@ -28,7 +28,7 @@ task pepper_margin_dv_t {
   }
 
   runtime {
-    docker: "kishwars/pepper_deepvariant:r0.6"
+    docker: "kishwars/pepper_deepvariant:r0.7"
     cpu: threads
 	memory: memSizeGb + " GB"
 	disks: "local-disk " + diskSizeGb + " SSD"
