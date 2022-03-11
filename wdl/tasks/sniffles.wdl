@@ -15,10 +15,10 @@ task sniffles_t {
     set -u
     set -o xtrace
 
-    TRF_STRING = ""
+    TRF_STRING=""
     if [ ! -z ~{trfAnnotations} ]
     then
-       TRF_STRING = "--tandem-repeats /opt/trf_annotations/~{trfAnnotations}"
+       TRF_STRING="--tandem-repeats /opt/trf_annotations/~{trfAnnotations}"
     fi
     echo $TRF_STRING
 
