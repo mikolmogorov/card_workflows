@@ -23,8 +23,8 @@ task pepper_margin_dv_t {
   >>>
 
   output {
-	File pepperVcf = "PEPPER_MARGIN_DEEPVARIANT_OUTPUT.vcf.gz"
-    File haplotaggedBam = "intermediate_files/PHASED.PEPPER_MARGIN.haplotagged.bam"
+	File pepperVcf = "PEPPER_MARGIN_DEEPVARIANT_FINAL_OUTPUT.vcf.gz"
+    #File haplotaggedBam = "intermediate_files/PHASED.PEPPER_MARGIN.haplotagged.bam"
   }
 
   runtime {
