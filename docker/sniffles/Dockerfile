@@ -8,6 +8,9 @@ RUN apt-get update && \
 
 RUN pip install sniffles
 
+WORKDIR /opt
+COPY ./trf_annotations /opt/trf_annotations
+
 ### samtools
 # 1.9
 WORKDIR /opt/samtools

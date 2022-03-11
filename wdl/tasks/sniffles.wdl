@@ -6,6 +6,7 @@ task sniffles_t {
 	File bamAlignment
 	Int memSizeGb = 128
 	Int diskSizeGb = 256
+	String trfAnnotations = ""
   }
   
   command <<<
@@ -14,8 +15,15 @@ task sniffles_t {
     set -u
     set -o xtrace
 
+    TRF_STRING = ""
+    if [ ! -z ~{trfAnnotations} ]
+    then
+       TRF_STRING = "--tandem-repeats /opt/trf_annotations/~{trfAnnotations}"
+    fi
+    echo $TRF_STRING
+
     samtools index -@ 10 ~{bamAlignment}
-    sniffles -i ~{bamAlignment} -v sniffles.vcf -t ~{threads}
+    sniffles -i ~{bamAlignment} -v sniffles.vcf -t ~{threads} ${TRF_STRING}
   >>>
 
   output {
