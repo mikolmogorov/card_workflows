@@ -25,12 +25,14 @@ task hapdup_t {
   >>>
 
   output {
-    File hapdupHap1 = "hapdup/haplotype_1.fasta"
-    File hapdupHap2 = "hapdup/haplotype_2.fasta"
+    File hapdupDual1 = "hapdup/hapdup_dual_1.fasta"
+    File hapdupDual2 = "hapdup/hapdup_dual_2.fasta"
+    File hapdupPhased1 = "hapdup/hapdup_pahsed_1.fasta"
+    File hapdupPhased2 = "hapdup/hapdup_phased_2.fasta"
   }
 
   runtime {
-    docker: "mkolmogo/hapdup:0.4"
+    docker: "mkolmogo/hapdup:0.7"
     cpu: threads
     memory: memSizeGb + " GB"
     disks: "local-disk " + diskSizeGb + " SSD"

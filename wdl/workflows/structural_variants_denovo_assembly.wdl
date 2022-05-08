@@ -47,8 +47,10 @@ workflow structuralVariantsDenovoAssembly {
 	}
 
 	output {
-        File asmHap1 = hapdup_t.hapdupHap1
-        File asmHap2 = hapdup_t.hapdupHap2
+        File asmDual1 = hapdup_t.hapdupDual1
+        File asmDual2 = hapdup_t.hapdupDual2
+        File asmPhased1 = hapdup_t.hapdupPhased1
+        File asmPhased2 = hapdup_t.hapdupPhased2
 		File vcfWithSv = dipdiff_t.dipdiffVcf
 	}
 }
