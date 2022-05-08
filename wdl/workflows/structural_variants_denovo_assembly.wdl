@@ -42,8 +42,8 @@ workflow structuralVariantsDenovoAssembly {
 		input:
 			#threads=threads,
 			reference=referenceFile,
-			ctgsPat=hapdup_t.hapdupHap1,
-			ctgsMat=hapdup_t.hapdupHap2
+			ctgsPat=hapdup_t.hapdupDual1,
+			ctgsMat=hapdup_t.hapdupDual2
 	}
 
 	output {
