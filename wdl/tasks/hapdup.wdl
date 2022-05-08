@@ -27,7 +27,7 @@ task hapdup_t {
   output {
     File hapdupDual1 = "hapdup/hapdup_dual_1.fasta"
     File hapdupDual2 = "hapdup/hapdup_dual_2.fasta"
-    File hapdupPhased1 = "hapdup/hapdup_pahsed_1.fasta"
+    File hapdupPhased1 = "hapdup/hapdup_phased_1.fasta"
     File hapdupPhased2 = "hapdup/hapdup_phased_2.fasta"
   }
 
