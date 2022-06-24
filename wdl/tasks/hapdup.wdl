@@ -32,7 +32,7 @@ task hapdup_t {
   }
 
   runtime {
-    docker: "mkolmogo/hapdup:0.7"
+    docker: "mkolmogo/hapdup:0.8"
     cpu: threads
     memory: memSizeGb + " GB"
     disks: "local-disk " + diskSizeGb + " SSD"
