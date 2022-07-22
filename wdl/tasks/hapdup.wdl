@@ -21,7 +21,7 @@ task hapdup_t {
     export TMPDIR="/tmp"
 
     flye-samtools index -@ 10 ~{alignedBam}
-    hapdup --assembly ~{contigs} --bam ~{alignedBam} --out-dir hapdup -t ~{threads} --rtype ~{readType}
+    hapdup --assembly ~{contigs} --bam ~{alignedBam} --out-dir hapdup -t ~{threads} --rtype ~{readType} --use-unphased
   >>>
 
   output {
@@ -32,7 +32,7 @@ task hapdup_t {
   }
 
   runtime {
-    docker: "mkolmogo/hapdup:0.8"
+    docker: "mkolmogo/hapdup:0.9"
     cpu: threads
     memory: memSizeGb + " GB"
     disks: "local-disk " + diskSizeGb + " SSD"
