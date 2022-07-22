@@ -21,7 +21,7 @@ task hapdup_t {
     export TMPDIR="/tmp"
 
     flye-samtools index -@ 10 ~{alignedBam}
-    hapdup --assembly ~{contigs} --bam ~{alignedBam} --out-dir hapdup -t ~{threads} --rtype ~{readType} --use-unphased 2>&1 | tee hapdup/hapdup.log
+    hapdup --assembly ~{contigs} --bam ~{alignedBam} --out-dir hapdup -t ~{threads} --rtype ~{readType} --use-unphased 2>&1 | tee hapdup.log
   >>>
 
   output {
