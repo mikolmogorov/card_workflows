@@ -7,6 +7,7 @@ task sniffles_t {
 	Int memSizeGb = 128
 	Int diskSizeGb = 256
 	String trfAnnotations = ""
+	Int minSvLen = 30
   }
   
   command <<<
@@ -23,7 +24,7 @@ task sniffles_t {
     echo $TRF_STRING
 
     samtools index -@ 10 ~{bamAlignment}
-    sniffles -i ~{bamAlignment} -v sniffles.vcf -t ~{threads} ${TRF_STRING}
+    sniffles -i ~{bamAlignment} -v sniffles.vcf -t ~{threads} ${TRF_STRING} --minsvlen ${minSvLen}
   >>>
 
   output {
