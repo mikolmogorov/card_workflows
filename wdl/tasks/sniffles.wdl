@@ -24,7 +24,7 @@ task sniffles_t {
     echo $TRF_STRING
 
     samtools index -@ 10 ~{bamAlignment}
-    sniffles -i ~{bamAlignment} -v sniffles.vcf -t ~{threads} ${TRF_STRING} --minsvlen ${minSvLen}
+    sniffles -i ~{bamAlignment} -v sniffles.vcf -t ~{threads} ${TRF_STRING} --minsvlen ~{minSvLen}
   >>>
 
   output {
