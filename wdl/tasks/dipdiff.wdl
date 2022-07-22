@@ -21,7 +21,7 @@ task dipdiff_t {
   >>>
 
   output {
-    File dipdiffVcf = "dipdiff/variants.vcf"
+    File dipdiffVcf = "dipdiff/variants.vcf.gz"
   }
 
   runtime {
