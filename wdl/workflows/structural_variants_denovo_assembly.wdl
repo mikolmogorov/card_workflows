@@ -52,5 +52,7 @@ workflow structuralVariantsDenovoAssembly {
         File asmPhased1 = hapdup_t.hapdupPhased1
         File asmPhased2 = hapdup_t.hapdupPhased2
 		File vcfWithSv = dipdiff_t.dipdiffVcf
+		File shastaHaploid = shasta_t.shastaFasta
+		File shastaLog = shasta_t.shastaLog
 	}
 }
