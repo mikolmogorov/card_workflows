@@ -29,12 +29,13 @@ task shasta_t {
       rm $SHASTA_INPUT
       SHASTA_INPUT=${UNGZIPPED}
     fi
-    shasta --input $SHASTA_INPUT --config ~{shastaConfig} --threads ~{threads} --memoryMode filesystem --memoryBacking disk
+    shasta --input $SHASTA_INPUT --config ~{shastaConfig} --threads ~{threads} --memoryMode filesystem --memoryBacking disk 2>&1 | tee shasta.log
   >>>
 
   output {
     File shastaFasta = "ShastaRun/Assembly.fasta"
     File shastaGfa = "ShastaRun/Assembly.gfa"
+    File shastaLog = "shasta.log"
   }
 
   runtime {
