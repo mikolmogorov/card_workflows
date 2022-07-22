@@ -9,6 +9,7 @@ task minimap2_t {
 	Boolean useMd = false
 	Int memSizeGb = 128
 	Int diskSizeGb = 1024
+	Int kmerSize = 17
   }
 
   String mdString = if useMd then "--MD" else ""
@@ -19,7 +20,7 @@ task minimap2_t {
     set -u
     set -o xtrace
     
-    minimap2 -ax ~{mapMode} ~{reference} ~{reads} -K 5G -t ~{threads} ~{mdString} | samtools sort -@ 4 -m 4G > minimap2.bam
+    minimap2 -ax ~{mapMode} ~{reference} ~{reads} -k ~{kmerSize} -K 5G -t ~{threads} ~{mdString} | samtools sort -@ 4 -m 4G > minimap2.bam
     samtools index -@ ~{threads} minimap2.bam
   >>>
 
