@@ -17,11 +17,12 @@ task dipdiff_t {
     set -u
     set -o xtrace
 
-    dipdiff.py --reference ~{reference} --pat ~{ctgsPat} --mat ~{ctgsMat} --out-dir dipdiff -t ~{threads} --sv-size ~{minSvSize}
+    dipdiff.py --reference ~{reference} --pat ~{ctgsPat} --mat ~{ctgsMat} --out-dir dipdiff -t ~{threads} --sv-size ~{minSvSize} 2>&1 | tee dipdiff.log
   >>>
 
   output {
     File dipdiffVcf = "dipdiff/variants.vcf.gz"
+    File dipdiffLog = "dipdiff.log"
   }
 
   runtime {

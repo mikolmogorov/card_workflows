@@ -21,7 +21,7 @@ task hapdup_t {
     export TMPDIR="/tmp"
 
     flye-samtools index -@ 10 ~{alignedBam}
-    hapdup --assembly ~{contigs} --bam ~{alignedBam} --out-dir hapdup -t ~{threads} --rtype ~{readType} --use-unphased
+    hapdup --assembly ~{contigs} --bam ~{alignedBam} --out-dir hapdup -t ~{threads} --rtype ~{readType} --use-unphased 2>&1 | tee hapdup/hapdup.log
   >>>
 
   output {
@@ -29,6 +29,7 @@ task hapdup_t {
     File hapdupDual2 = "hapdup/hapdup_dual_2.fasta"
     File hapdupPhased1 = "hapdup/hapdup_phased_1.fasta"
     File hapdupPhased2 = "hapdup/hapdup_phased_2.fasta"
+    File hapdupLog = "hapdup.log"
   }
 
   runtime {

@@ -24,11 +24,12 @@ task sniffles_t {
     echo $TRF_STRING
 
     samtools index -@ 10 ~{bamAlignment}
-    sniffles -i ~{bamAlignment} -v sniffles.vcf -t ~{threads} ${TRF_STRING} --minsvlen ~{minSvLen}
+    sniffles -i ~{bamAlignment} -v sniffles.vcf -t ~{threads} ${TRF_STRING} --minsvlen ~{minSvLen} 2>&1 | tee sniffles.log
   >>>
 
   output {
 	File snifflesVcf = "sniffles.vcf"
+	File snifflesLog = "sniffles.log"
   }
 
   runtime {
