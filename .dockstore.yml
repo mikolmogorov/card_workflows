@@ -6,3 +6,6 @@ workflows:
    -  name: structuralVariantsDenovoAssembly
       subclass: WDL
       primaryDescriptorPath: /wdl/workflows/structural_variants_denovo_assembly.wdl
+   -  name: assemblySvCallingDipdiff
+      subclass: WDL
+      primaryDescriptorPath: /wdl/workflows/asembbly_sv_calling_dipdiff.wdl
