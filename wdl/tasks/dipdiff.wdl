@@ -21,12 +21,13 @@ task dipdiff_t {
   >>>
 
   output {
-    File dipdiffVcf = "dipdiff/variants.vcf.gz"
+    File dipdiffUnphasedVcf = "dipdiff/dipdiff_unphased.vcf.gz"
+    File dipdiffPhasedVcf = "dipdiff/dipdiff_phased.vcf.gz"
     File dipdiffLog = "dipdiff.log"
   }
 
   runtime {
-    docker: "mkolmogo/dipdiff:0.4"
+    docker: "mkolmogo/dipdiff:0.5"
     cpu: threads
     memory: memSizeGb + " GB"
     disks: "local-disk " + diskSizeGb + " SSD"
