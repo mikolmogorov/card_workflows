@@ -18,7 +18,7 @@ workflow structuralVariantsDenovoAssembly {
 			threads=threads,
 			reference=referenceFile,
 			ctgsPat=assemblyHap1,
-			ctgsMat=assmeblyHap2,
+			ctgsMat=assemblyHap2,
 			minSvSize=minSvSize
 	}
 
