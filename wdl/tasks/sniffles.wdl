@@ -4,10 +4,10 @@ task sniffles_t {
   input {
     Int threads
 	File bamAlignment
+	String vntrAnnotations = ""
+	Int minSvLen = 30
 	Int memSizeGb = 128
 	Int diskSizeGb = 256
-	String trfAnnotations = ""
-	Int minSvLen = 30
   }
   
   command <<<
@@ -17,9 +17,9 @@ task sniffles_t {
     set -o xtrace
 
     TRF_STRING=""
-    if [ ! -z ~{trfAnnotations} ]
+    if [ ! -z ~{vntrAnnotations} ]
     then
-       TRF_STRING="--tandem-repeats /opt/trf_annotations/~{trfAnnotations}"
+       TRF_STRING="--tandem-repeats ~{vntrAnnotations}"
     fi
     echo $TRF_STRING
 
