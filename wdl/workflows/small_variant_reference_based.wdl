@@ -10,7 +10,7 @@ workflow smallVariantsReferenceBased {
         String sampleName
         File referenceFile
         File readsFile
-        File? vntrAnnotations
+        File vntrAnnotations = ""
         Int threads
     }
 
@@ -36,7 +36,7 @@ workflow smallVariantsReferenceBased {
     call sniffles_t.sniffles_t as sniffles_t {
         input:
             threads=threads,
-			bamAlignment=minimap2.bam
+			bamAlignment=minimap2.bam,
 			vntrAnnotations=vntrAnnotations
     }
 
