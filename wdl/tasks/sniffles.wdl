@@ -4,7 +4,7 @@ task sniffles_t {
   input {
     Int threads
 	File bamAlignment
-	String vntrAnnotations = ""
+	File vntrAnnotations = ""
 	Int minSvLen = 30
 	Int memSizeGb = 128
 	Int diskSizeGb = 256
