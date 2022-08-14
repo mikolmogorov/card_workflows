@@ -10,8 +10,8 @@ workflow smallVariantsReferenceBased {
         String sampleName
         File referenceFile
         File readsFile
-		File vntrAnnotations = ""
-		Int threads
+        File? vntrAnnotations
+        Int threads
     }
 
     ### minimap2 alignent ###
