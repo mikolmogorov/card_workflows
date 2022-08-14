@@ -6,9 +6,10 @@ workflow structuralVariantsDenovoAssembly {
 
     input {
         File referenceFile
+        File vntrAnnotations
         File assemblyHap1
         File assemblyHap2
-		Int minSvSize = 30
+        Int minSvSize = 30
         Int threads = 32
     }
 
@@ -17,6 +18,7 @@ workflow structuralVariantsDenovoAssembly {
 		input:
 			threads=threads,
 			reference=referenceFile,
+			vntrAnnotations=vntrAnnotations,
 			ctgsPat=assemblyHap1,
 			ctgsMat=assemblyHap2,
 			minSvSize=minSvSize
