@@ -10,7 +10,7 @@ workflow smallVariantsReferenceBased {
         String sampleName
         File referenceFile
         File readsFile
-        File vntrAnnotations = ""
+        File vntrAnnotations
         Int threads
     }
 
