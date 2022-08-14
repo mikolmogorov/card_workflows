@@ -9,7 +9,7 @@ workflow structuralVariantsDenovoAssembly {
 
     input {
         String sampleName
-        File referenceFile
+        #File referenceFile
         File readsFile
         Int threads
     }
@@ -38,20 +38,20 @@ workflow structuralVariantsDenovoAssembly {
 	}
 
 	### dipdiff
-	call dipdiff_t.dipdiff_t as dipdiff_t {
-		input:
-			#threads=threads,
-			reference=referenceFile,
-			ctgsPat=hapdup_t.hapdupDual1,
-			ctgsMat=hapdup_t.hapdupDual2
-	}
+	#call dipdiff_t.dipdiff_t as dipdiff_t {
+	#	input:
+	#		#threads=threads,
+	#		reference=referenceFile,
+	#		ctgsPat=hapdup_t.hapdupDual1,
+	#		ctgsMat=hapdup_t.hapdupDual2
+	#}
 
 	output {
         File asmDual1 = hapdup_t.hapdupDual1
         File asmDual2 = hapdup_t.hapdupDual2
         File asmPhased1 = hapdup_t.hapdupPhased1
         File asmPhased2 = hapdup_t.hapdupPhased2
-		File vcfWithSv = dipdiff_t.dipdiffUnphasedVcf
+		#File vcfWithSv = dipdiff_t.dipdiffUnphasedVcf
 		File shastaHaploid = shasta_t.shastaFasta
 		File shastaLog = shasta_t.shastaLog
 	}
